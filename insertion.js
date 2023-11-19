@@ -2,27 +2,23 @@ function insertionSort(arr) {
 
     const sortedArr = []
 
-    for (let i=0; i < arr.length; i++){
+    if(arr.length){
+        sortedArr.push(arr[0])
+    }
 
-        if(sortedArr.length === 0){
+    for (let i = 1; i < arr.length; i++){
 
-            sortedArr.push(arr[i]);
+        for(let j = sortedArr.length - 1; j >= 0; j-- ){
 
-        } else {
+            if(arr[i] > sortedArr[j]){
 
-            for(let j = sortedArr.length - 1; j >= 0; j-- ){
+                sortedArr.splice(j+1, 0, arr[i])
+                break
 
-                if(arr[i] > sortedArr[j]){
-    
-                    sortedArr.splice(j+1, 0, arr[i])
-                    break
-    
-                } else if (j === 0){
+            } else if (j === 0){
 
-                    sortedArr.unshift(arr[i])
+                sortedArr.unshift(arr[i])
 
-                }
-    
             }
 
         }
